@@ -50,7 +50,7 @@ class UserController extends Controller
                 });
             })
             ->latest()
-            ->paginate(10)
+            ->simplePaginate(15)
             ->appends(['search' => $search]);
 
         return view('users.index', compact('users', 'search'));

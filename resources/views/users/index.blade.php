@@ -87,13 +87,11 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            overflow-x: auto;
         }
         th, td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
-            white-space: nowrap;
         }
         th {
             background-color: #007bff;
@@ -113,109 +111,6 @@
             padding: 40px;
             color: #666;
         }
-
-        /* ✅ Responsive Design */
-
-        @media (max-width: 992px) {
-            body {
-                padding: 15px;
-            }
-            .container {
-                padding: 20px;
-            }
-            .header-actions {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-            }
-            .header-actions form {
-                width: 100%;
-                flex-wrap: wrap;
-            }
-            .search-input {
-                width: 100%;
-            }
-            .btn {
-                width: 100%;
-                text-align: center;
-                margin-top: 5px;
-            }
-            table {
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 22px;
-                margin-bottom: 20px;
-            }
-            .container {
-                padding: 15px;
-            }
-            table {
-                display: block;
-                width: 100%;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-            th, td {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .header-actions {
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-            }
-            .header-actions form {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-            .search-input {
-                width: 100%;
-                font-size: 13px;
-            }
-            .btn {
-                width: 100%;
-                font-size: 13px;
-            }
-            .btn-info, .btn-danger {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 10px;
-                border-radius: 5px;
-            }
-            h1 {
-                font-size: 20px;
-            }
-            .search-input {
-                font-size: 12px;
-                padding: 8px;
-            }
-            .btn {
-                font-size: 12px;
-                padding: 8px 12px;
-            }
-            th, td {
-                font-size: 12px;
-                padding: 8px;
-            }
-            .no-data {
-                padding: 20px;
-                font-size: 14px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -232,6 +127,7 @@
             <form action="{{ route('users-data.index') }}" method="GET" style="display:flex; align-items:center; gap:8px;">
                 <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="নাম, আইডি, মোবাইল, জাতীয়তা সার্চ করুন..." class="search-input" autofocus>
                 <button type="submit" class="btn btn-primary"> সার্চ </button>
+                {{-- Keep Clear element present to avoid layout shift; hide when no search value --}}
                 <a href="{{ route('users-data.index') }}" class="btn btn-info p-5" style="{{ (isset($search) && $search) ? '' : 'visibility:hidden;' }}"> ক্লিয়ার </a>
             </form>
 
@@ -283,7 +179,7 @@
             </table>
 
             <div class="pagination">
-                {{ $users->links() }}
+                {{ $users->links()}}
             </div>
         @else
             <div class="no-data">

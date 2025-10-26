@@ -33,10 +33,10 @@
         h2 {
             color: #444;
             margin-top: 30px;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-            font-size: 1.2rem;
+            padding-bottom: 5px;
+            font-size: 1rem;
         }
         .form-group {
             margin-bottom: 20px;
@@ -153,9 +153,9 @@
             border: 1px solid #c3e6cb;
         }
         .instruction-banner {
-            background-color: #fff3cd;
-            color: #856404;
-            border: 2px solid #ffc107;
+            background-color: #ff073a;
+            color: #ffffff;
+            /* border: 2px solid #ffc107; */
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 4px;
@@ -190,7 +190,7 @@
                 font-size: 1.5rem;
             }
             h2 {
-                font-size: 1.1rem;
+                font-size: 0.95rem;
             }
             label {
                 font-size: 0.9rem;
@@ -215,8 +215,15 @@
                 margin-bottom: 10px;
             }
             .remove-btn {
-                font-size: 10px;
-                padding: 4px 8px;
+                position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 13px;
+        padding: 6px 0;
             }
             .dynamic-section {
                 padding: 15px;
@@ -250,7 +257,7 @@
         <h1>"প্রাক চাকুরি বৃত্তান্ত যাচাই ফরম"</h1>
 
         <div class="instruction-banner">
-            ⚠️ দয়া করে সমস্ত তথ্য বাংলায় লিখুন ⚠️
+             দয়া করে সমস্ত তথ্য বাংলায় লিখুন 
         </div>
 
 
@@ -282,7 +289,10 @@
 
             <div class="row">
                 <div class="form-group">
-                    <label for="employee_id"> প্রার্থীর অফিস আইডি <span style="color: red;">*</span></label>
+                    <label for="employee_id">
+  প্রার্থীর অফিস আইডি<span style="color: red; margin-left: 2px;">*</span>
+</label>
+
                     <input type="number" placeholder="যেমন: 202200XXX" name="employee_id" id="employee_id" value="{{ old('employee_id') }}" required>
                     @error('employee_id')
                         <span class="error">{{ $message }}</span>
@@ -290,8 +300,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="mobile_number">মোবাইল নম্বর <span style="color: red;">*</span></label>
-                    <input type="tel" placeholder="01XXX-XXXXXX" name="mobile_number" id="mobile_number" value="{{ old('mobile_number') }}" required>
+                    <label for="mobile_number">মোবাইল নম্বর<span style="color: red;">*</span></label>
+                    <input type="tel" placeholder="01XXXXXXXXX" name="mobile_number" id="mobile_number" value="{{ old('mobile_number') }}" inputmode="numeric" pattern="[0-9]*" required>
                     @error('mobile_number')
                         <span class="error">{{ $message }}</span>
                     @enderror
@@ -302,7 +312,7 @@
 
             <div class="row">               
                 <div class="form-group">
-                    <label for="designation">পদবী (অফিস কর্তৃক পূরণীয়) <span style="color: red;">*</span></label>
+                    <label for="designation">পদবী (অফিস কর্তৃক পূরণীয়)<span style="color: red;">*</span></label>
                     <input type="text" placeholder="পদবী লিখুন" name="designation" id="designation" value="{{ old('designation') }}" required>
                     @error('designation')
                         <span class="error">{{ $message }}</span>
@@ -310,7 +320,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="full_name">১। প্রার্থীর পূর্ণ নাম (ডাক নামসহ স্পষ্টাক্ষরে) <span style="color: red;">*</span></label>
+                    <label for="full_name">১। প্রার্থীর পূর্ণ নাম (ডাক নামসহ স্পষ্টাক্ষরে)<span style="color: red;">*</span></label>
                     <input type="text" placeholder="পূর্ণ নাম (ডাক নামসহ) লিখুন" name="full_name" id="full_name" value="{{ old('full_name') }}" required>
                     @error('full_name')
                         <span class="error">{{ $message }}</span>
@@ -320,7 +330,7 @@
 
             <div class="row">
                 <div class="form-group">
-                    <label for="nationality">২। জাতীয়তা <span style="color: red;">*</span></label>
+                    <label for="nationality">২। জাতীয়তা<span style="color: red;">*</span></label>
                     <input type="text" placeholder="জাতীয়তা লিখুন" name="nationality" id="nationality" value="{{ old('nationality') }}" required>
                     @error('nationality')
                         <span class="error">{{ $message }}</span>
@@ -328,7 +338,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="fathers_name_design_nation">৩। পিতার পূর্ণ নাম ও (চাকুরীরত থাকিলে) পদের নাম ও জাতীয়তা <span style="color: red;">*</span></label>
+                    <label for="fathers_name_design_nation">৩। পিতার পূর্ণ নাম ও (চাকুরীরত থাকিলে) পদের নাম ও জাতীয়তা<span style="color: red;">*</span></label>
                     <input type="text" placeholder="পিতার নাম, পদবী ও জাতীয়তা লিখুন" name="fathers_name_design_nation" id="fathers_name_design_nation" value="{{ old('fathers_name_design_nation') }}" required>
                     @error('fathers_name_design_nation')
                         <span class="error">{{ $message }}</span>
@@ -337,7 +347,7 @@
             </div>
 
             <div class="form-group">
-                <label for="permanent_address_details">৪। স্থায়ী ঠিকানা (গ্রাম, ডাকঘর, থানা ও জেলা) <span style="color: red;">*</span></label>
+                <label for="permanent_address_details">৪। স্থায়ী ঠিকানা (গ্রাম, ডাকঘর, থানা ও জেলা)<span style="color: red;">*</span></label>
                 <textarea name="permanent_address_details" id="permanent_address_details" placeholder="গ্রাম, ডাকঘর, থানা ও জেলা লিখুন" required>{{ old('permanent_address_details') }}</textarea>
                 @error('permanent_address_details')
                     <span class="error">{{ $message }}</span>
@@ -345,7 +355,7 @@
             </div>
 
             <div class="form-group">
-                <label for="present_address_details">৫। বর্তমান বাসস্থানের ঠিকানা <span style="color: red;">*</span></label>
+                <label for="present_address_details">৫। বর্তমান বাসস্থানের ঠিকানা<span style="color: red;">*</span></label>
                 <textarea name="present_address_details" id="present_address_details" placeholder="বর্তমান ঠিকানার সম্পূর্ণ বিবরণ লিখুন" required>{{ old('present_address_details') }}</textarea>
                 @error('present_address_details')
                     <span class="error">{{ $message }}</span>
@@ -358,17 +368,17 @@
                 <div id="stay-container">
                     <div class="dynamic-row stay-row">
                         <div class="form-group">
-                            <label>ঠিকানার বিবরণ <span style="color: red;">*</span></label>
+                            <label>ঠিকানার বিবরণ<span style="color: red;">*</span></label>
                             <textarea name="stays[0][address_details]" placeholder="সম্পূর্ণ ঠিকানা লিখুন" required>{{ old('stays.0.address_details') }}</textarea>
                         </div>
 
                         <div class="row">
                             <div class="form-group">
-                                <label>তারিখ হইতে <span style="color: red;">*</span></label>
+                                <label>তারিখ হইতে<span style="color: red;">*</span></label>
                                 <input type="date" name="stays[0][from_date]" value="{{ old('stays.0.from_date') }}" required>
                             </div>
                             <div class="form-group">
-                                <label>তারিখ পর্যন্ত <span style="color: red;">*</span></label>
+                                <label>তারিখ পর্যন্ত<span style="color: red;">*</span></label>
                                 <input type="date" name="stays[0][to_date]" value="{{ old('stays.0.to_date') }}" required>
                             </div>
                         </div>
@@ -379,7 +389,7 @@
 
             <div class="row">
                 <div class="form-group">
-                    <label for="birth_date">৭। জন্ম তারিখ <span style="color: red;">*</span></label>
+                    <label for="birth_date">৭। জন্ম তারিখ<span style="color: red;">*</span></label>
                     <input type="date" name="birth_date" id="birth_date" value="{{ old('birth_date') }}" required>
                     @error('birth_date')
                         <span class="error">{{ $message }}</span>
@@ -387,7 +397,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="birth_place">৮। জন্ম স্থান (ডাকঘর, থানা/উপজেলা, জেলা) <span style="color: red;">*</span></label>
+                    <label for="birth_place">৮। জন্ম স্থান (ডাকঘর, থানা/উপজেলা, জেলা)<span style="color: red;">*</span></label>
                     <input type="text" placeholder="জন্ম স্থান লিখুন" name="birth_place" id="birth_place" value="{{ old('birth_place') }}" required>
                     @error('birth_place')
                         <span class="error">{{ $message }}</span>
@@ -402,39 +412,39 @@
                 <div id="education-container">
                     <div class="dynamic-row education-row">
                         <div class="form-group">
-                            <label>বিদ্যালয় / মহাবিদ্যালয় / বিশ্ববিদ্যালয়ের নাম <span style="color: red;">*</span></label>
+                            <label>বিদ্যালয় / মহাবিদ্যালয় / বিশ্ববিদ্যালয়ের নাম<span style="color: red;">*</span></label>
                             <input type="text" placeholder="প্রতিষ্ঠানের নাম লিখুন" name="education[0][institution_name]" value="{{ old('education.0.institution_name') }}" required>
                         </div>
                         
                         <div class="row">
                             <div class="form-group">
-                                <label>ডিগ্রির নাম <span style="color: red;">*</span></label>
+                                <label>ডিগ্রির নাম<span style="color: red;">*</span></label>
                                 <input type="text" placeholder="এস.এস.সি / এইচ.এস.সি / স্নাতক / মাস্টার্স" name="education[0][degree_name]" value="{{ old('education.0.degree_name') }}" required>
                             </div>
                             <div class="form-group">
-                                <label>রেজিস্ট্রেশন নম্বর <span style="color: red;">*</span></label>
+                                <label>রেজিস্ট্রেশন নম্বর<span style="color: red;">*</span></label>
                                 <input type="text" placeholder="রেজিস্ট্রেশন নম্বর লিখুন" name="education[0][reg_no]" value="{{ old('education.0.reg_no') }}" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group">
-                                <label>রোল নম্বর <span style="color: red;">*</span></label>
+                                <label>রোল নম্বর<span style="color: red;">*</span></label>
                                 <input type="number" placeholder="রোল নম্বর লিখুন" name="education[0][roll_no]" value="{{ old('education.0.roll_no') }}" required>
                             </div>
                             <div class="form-group">
-                                <label>ভর্তির তারিখ <span style="color: red;">*</span></label>
+                                <label>ভর্তির তারিখ<span style="color: red;">*</span></label>
                                 <input type="date" name="education[0][admission_date]" value="{{ old('education.0.admission_date') }}" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group">
-                                <label>ভর্তির সেশন <span style="color: red;">*</span></label>
+                                <label>ভর্তির সেশন<span style="color: red;">*</span></label>
                                 <input type="text" placeholder="যেমন: ২০২০-২০২১" name="education[0][admission_session]" value="{{ old('education.0.admission_session') }}" required>
                             </div>
                             <div class="form-group">
-                                <label>পরিত্যাগের তারিখ / বৎসর <span style="color: red;">*</span></label>
+                                <label>পরিত্যাগের তারিখ / বৎসর<span style="color: red;">*</span></label>
                                 <input type="date" name="education[0][completion_year]" value="{{ old('education.0.completion_year') }}" required>
                             </div>
                         </div>
@@ -478,9 +488,7 @@
                 </div>
                 <button type="button" class="btn btn-primary add-row-btn" onclick="addJobRow()">+ আরও চাকুরি যোগ করুন</button>
             </div>
-
-            <!-- 10A. Worked with Army -->
-            <h2>১০ (ক) । প্রার্থী সেনাবাহিনীতে চাকুরী করিয়াছেন কিনা?</h2>
+           
             <div class="row">
                 <div class="form-group">
                     <label>সেনাবাহিনীতে চাকুরী করিয়াছেন কিনা?</label>
@@ -495,8 +503,8 @@
                     <div class="dynamic-row army-file-row">
                         <button type="button" class="btn btn-danger remove-btn" onclick="removeRow(this)">✕ মুছুন</button>
                         <div class="form-group">
-                            <label>নথি আপলোড করুন </label>
-                            <input type="file" name="army_files[]" accept=".pdf,image/*">
+                            <label>নথি আপলোড করুন  (JPG/PNG, সর্বোচ্চ 5 MB)</label>
+                            <input type="file" name="army_files[]" accept="image/*">
                         </div>
                     </div>
                 </div>
@@ -514,8 +522,8 @@
                     </select>
                 </div>
                 <div class="form-group" id="freedom_fighter_doc_group" style="display:none;">
-                    <label>সত্যায়িত কপি আপলোড করুন (JPG/PNG)</label>
-                    <input type="file" name="freedom_fighter_doc" accept=".pdf,image/*">
+                    <label>সত্যায়িত কপি আপলোড করুন (JPG/PNG ,সর্বোচ্চ 2 MB)</label>
+                    <input type="file" name="freedom_fighter_doc" accept="image/*">
                 </div>
             </div>
 
@@ -530,8 +538,8 @@
                     </select>
                 </div>
                 <div class="form-group" id="disability_doc_group" style="display:none;">
-                    <label>প্রতিবন্ধী সনদ আপলোড করুন (JPG/PNG)</label>
-                    <input type="file" name="disability_doc" accept=".pdf,image/*">
+                    <label>প্রতিবন্ধী সনদ আপলোড করুন (JPG/PNG, সর্বোচ্চ 2 MB)</label>
+                    <input type="file" name="disability_doc" accept="image/*">
                 </div>
             </div>
 
@@ -588,8 +596,8 @@
             <!-- 15. Testimonial from last educational institute -->
             <h2>১৫। চরিত্রগত সার্টিফিকেট (সর্বশেষ শিক্ষা প্রতিষ্ঠান)</h2>
             <div class="form-group">
-                <label>চরিত্রগত সার্টিফিকেট আপলোড করুন (JPG/PNG)</label>
-                <input type="file" name="testimonial_file" accept=".pdf,image/*" required>
+                <label>চরিত্রগত সার্টিফিকেট আপলোড করুন (JPG/PNG, সর্বোচ্চ 2 MB)</label>
+                <input type="file" name="testimonial_file" accept="image/*" required>
             </div>
 
             <!-- 16. Witness / Reference (Two Persons) -->
@@ -638,7 +646,7 @@
             </div>
 
             <!-- 18. Candidate signature -->
-            <h2>১৮। প্রার্থীর স্বাক্ষর (১২০x৮০ পিক্সেল, < ৫০ kb)</h2>
+            <h2>১৮। প্রার্থীর স্বাক্ষর (১২০x৮০ পিক্সেল, সর্বোচ্চ ৫০ kb)</h2>
             <div class="form-group">
                 <label>স্বাক্ষর ও তারিখসহ আপলোড করুন (JPG/PNG)</label>
                 <input type="file" name="signature_file" accept="image/png,image/jpeg" required>
@@ -672,39 +680,39 @@
                 <button type="button" class="btn btn-danger remove-btn" onclick="removeRow(this)">✕ ডিলিট</button>
                 
                 <div class="form-group">
-                    <label>প্রতিষ্ঠানের নাম <span style="color: red;">*</span></label>
+                    <label>প্রতিষ্ঠানের নাম<span style="color: red;">*</span></label>
                     <input type="text" placeholder="প্রতিষ্ঠানের নাম লিখুন" name="education[${educationCount}][institution_name]" required>
                 </div>
                 
                 <div class="row">
                     <div class="form-group">
-                        <label>ডিগ্রির নাম <span style="color: red;">*</span></label>
+                        <label>ডিগ্রির নাম<span style="color: red;">*</span></label>
                         <input type="text" placeholder="ডিগ্রির নাম লিখুন" name="education[${educationCount}][degree_name]" required>
                     </div>
                     <div class="form-group">
-                        <label>রেজিস্ট্রেশন নম্বর <span style="color: red;">*</span></label>
+                        <label>রেজিস্ট্রেশন নম্বর<span style="color: red;">*</span></label>
                         <input type="text" placeholder="রেজিস্ট্রেশন নম্বর লিখুন" name="education[${educationCount}][reg_no]" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group">
-                        <label>রোল নম্বর <span style="color: red;">*</span></label>
+                        <label>রোল নম্বর<span style="color: red;">*</span></label>
                         <input type="number" placeholder="রোল নম্বর লিখুন" name="education[${educationCount}][roll_no]" required>
                     </div>
                     <div class="form-group">
-                        <label>ভর্তির তারিখ <span style="color: red;">*</span></label>
+                        <label>ভর্তির তারিখ<span style="color: red;">*</span></label>
                         <input type="date" name="education[${educationCount}][admission_date]" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group">
-                        <label>ভর্তির সেশন <span style="color: red;">*</span></label>
+                        <label>ভর্তির সেশন<span style="color: red;">*</span></label>
                         <input type="text" placeholder="যেমন: ২০২০-২০২১" name="education[${educationCount}][admission_session]" required>
                     </div>
                     <div class="form-group">
-                        <label>পরিত্যাগের তারিখ / বৎসর <span style="color: red;">*</span></label>
+                        <label>পরিত্যাগের তারিখ / বৎসর<span style="color: red;">*</span></label>
                         <input type="date" name="education[${educationCount}][completion_year]" required>
                     </div>
                 </div>
@@ -721,17 +729,17 @@
                 <button type="button" class="btn btn-danger remove-btn" onclick="removeRow(this)">✕ ডিলিট</button>
                 
                 <div class="form-group">
-                    <label>ঠিকানার বিবরণ <span style="color: red;">*</span></label>
+                    <label>ঠিকানার বিবরণ<span style="color: red;">*</span></label>
                     <textarea name="stays[${stayCount}][address_details]" placeholder="সম্পূর্ণ ঠিকানা লিখুন" required></textarea>
                 </div>
 
                 <div class="row">
                     <div class="form-group">
-                        <label>তারিখ হইতে <span style="color: red;">*</span></label>
+                        <label>তারিখ হইতে<span style="color: red;">*</span></label>
                         <input type="date" name="stays[${stayCount}][from_date]" required>
                     </div>
                     <div class="form-group">
-                        <label>তারিখ পর্যন্ত <span style="color: red;">*</span></label>
+                        <label>তারিখ পর্যন্ত<span style="color: red;">*</span></label>
                         <input type="date" name="stays[${stayCount}][to_date]" required>
                     </div>
                 </div>
@@ -748,12 +756,12 @@
                 <button type="button" class="btn btn-danger remove-btn" onclick="removeRow(this)">✕ ডিলিট</button>
                 <div class="form-group">
                     <label>প্রতিষ্ঠানের নাম</label>
-                    <input type="text" placeholder="প্রতিষ্ঠানের নাম লিখুন" name="previous_jobs[${jobCount}][organization_name]">
+                    <input type="text" placeholder="প্রতিষ্ঠানের নাম লিখুন" name="previous_jobs[${jobCount}][organization_name]" required>
                 </div>
                 <div class="row">
                     <div class="form-group">
                         <label>তারিখ হইতে</label>
-                        <input type="date" name="previous_jobs[${jobCount}][from_date]">
+                        <input type="date" name="previous_jobs[${jobCount}][from_date]" required>
                     </div>
                     <div class="form-group">
                         <label>তারিখ পর্যন্ত</label>
@@ -785,16 +793,16 @@
                 <div class="row">
                     <div class="form-group">
                         <label>আত্মীয়-স্বজনের নাম</label>
-                        <input type="text" placeholder="নাম লিখুন" name="govt_relatives[${relativeCount}][relative_name]">
+                        <input type="text" placeholder="নাম লিখুন" name="govt_relatives[${relativeCount}][relative_name]" required>
                     </div>
                     <div class="form-group">
                         <label>পদের নাম</label>
-                        <input type="text" placeholder="পদবী লিখুন" name="govt_relatives[${relativeCount}][designation]">
+                        <input type="text" placeholder="পদবী লিখুন" name="govt_relatives[${relativeCount}][designation]" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>কর্মস্থল</label>
-                    <input type="text" placeholder="কর্মস্থল লিখুন" name="govt_relatives[${relativeCount}][working_place]">
+                    <input type="text" placeholder="কর্মস্থল লিখুন" name="govt_relatives[${relativeCount}][working_place]" required>
                 </div>
             `;
             container.appendChild(newRow);
@@ -808,8 +816,8 @@
             newRow.innerHTML = `
                 <button type="button" class="btn btn-danger remove-btn" onclick="removeRow(this)">✕ ডিলিট</button>
                 <div class="form-group">
-                    <label>নথি আপলোড করুন </label>
-                    <input type="file" name="army_files[]" accept=".pdf,image/*">
+                    <label>নথি আপলোড করুন (JPG/PNG, সর্বোচ্চ 5 MB)</label>
+                    <input type="file" name="army_files[]" accept="image/*" required>
                 </div>
             `;
             container.appendChild(newRow);

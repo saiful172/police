@@ -7,106 +7,266 @@
     <title>পুলিশ যাচাইকরণ সম্পাদনা করুন</title>
     <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet" />
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: "Kalpurush", "Noto Sans Bengali", "Hind Siliguri", "SolaimanLipi", Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { text-align: center; color: #333; margin-bottom: 30px; }
-        h2 { color: #444; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 5px; color: #555; font-weight: bold; }
-        input[type="text"], input[type="number"], input[type="date"], input[type="tel"], textarea, select {
-            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;
+       <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        textarea { resize: vertical; min-height: 80px; }
-        .row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .dynamic-section { background: #f9f9f9; padding: 20px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #e0e0e0; }
-        .dynamic-row { background: white; padding: 15px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ddd; position: relative; }
-        .btn { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background 0.3s; }
-        .btn-primary { background-color: #007bff; color: white; }
-        .btn-primary:hover { background-color: #0056b3; }
-        .btn-success { background-color: #28a745; color: white; }
-        .btn-success:hover { background-color: #218838; }
-        .btn-danger { background-color: #dc3545; color: white; padding: 5px 10px; font-size: 12px; }
-        .btn-danger:hover { background-color: #c82333; }
-        .remove-btn { position: absolute; top: 10px; right: 10px; }
-        .add-row-btn { margin-top: 10px; }
-        .submit-section { text-align: center; margin-top: 30px; }
-        .alert { padding: 15px; margin-bottom: 20px; border-radius: 4px; }
-        .alert-danger { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .alert-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .file-note { font-size: 12px; color: #555; margin-top: 6px; }
-        .muted { color: #666; font-size: 13px; }
+        body {
+            font-family: "Kalpurush", "Noto Sans Bengali", "Hind Siliguri", "SolaimanLipi", Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            font-size: 1rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .dynamic-section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        .dynamic-row {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            position: relative;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .btn-success:disabled {
+            background-color: #6c757d;
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .add-row-btn {
+            margin-top: 10px;
+        }
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .error {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .instruction-banner {
+            background-color: #ff073a;
+            color: #ffffff;
+            /* border: 2px solid #ffc107; */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
 
-        /* ✅ Responsive Styles */
+        /* ✅ Responsive Adjustments */
         @media (max-width: 992px) {
             .container {
                 padding: 20px;
             }
             .row {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 15px;
             }
-            input, select, textarea {
-                font-size: 15px;
-            }
-            h1 { font-size: 24px; }
-            h2 { font-size: 20px; }
-            .btn { font-size: 15px; padding: 10px 18px; }
         }
 
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            .container { padding: 15px; }
-            h1 { font-size: 22px; }
-            h2 { font-size: 18px; }
-            .btn { width: 100%; margin-top: 5px; }
-            .add-row-btn, .submit-section button {
-                width: 100%;
+            body {
+                padding: 10px;
             }
-            textarea, input, select {
-                font-size: 14px;
+            .container {
+                padding: 15px;
             }
-            .remove-btn {
-                position: static;
-                display: inline-block;
-                margin-bottom: 10px;
+            .row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 0.95rem;
+            }
+            label {
+                font-size: 0.9rem;
+            }
+            input, textarea, select {
+                font-size: 13px;
+                padding: 8px;
+            }
+            .btn {
+                font-size: 13px;
+                padding: 8px 15px;
             }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 20px; }
-            h2 { font-size: 17px; }
-            label { font-size: 13px; }
-            .btn {
-                font-size: 13px;
-                padding: 8px 12px;
+            .instruction-banner {
+                font-size: 14px;
+                padding: 10px;
             }
-            .file-note, .muted {
-                font-size: 12px;
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .remove-btn {
+                position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 13px;
+        padding: 6px 0;
             }
             .dynamic-section {
-                padding: 10px;
+                padding: 15px;
             }
             .dynamic-row {
                 padding: 10px;
             }
-            input, textarea, select {
-                padding: 8px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .btn, .add-row-btn, .remove-btn {
+                display: none !important;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
             }
         }
     </style>
     @php
+        // Prepare data sources preferring old() when available for dynamic arrays
         $oldEducation = old('education');
         $oldStays = old('stays');
         $oldJobs = old('previous_jobs');
         $oldRelatives = old('govt_relatives');
         $oldWitnesses = old('witnesses');
     @endphp
+    
 </head>
 <body>
     <div class="container">
         <h1>পুলিশ যাচাইকরণ সম্পাদনা করুন</h1>
+
+        <div class="instruction-banner">
+             দয়া করে সমস্ত তথ্য বাংলায় লিখুন 
+        </div>
 
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -409,14 +569,12 @@
                 </div>
                 <button type="button" class="btn btn-primary add-row-btn" onclick="addJobRow()">+ আরও চাকুরি যোগ করুন</button>
             </div>
-
-            <!-- 10A. Worked with Army -->
-            <h2>১০ (ক) । প্রার্থী সেনাবাহিনীতে চাকুরী করিয়াছেন কিনা?</h2>
+           
             <div class="row">
                 <div class="form-group">
                     <label>সেনাবাহিনীতে চাকুরী করিয়াছেন কিনা?</label>
                     @php $hasArmy = old('has_worked_with_army', $user->has_worked_with_army ? '1' : '0'); @endphp
-                    <select name="has_worked_with_army" id="has_worked_with_army" onchange="toggleWrapper('has_worked_with_army','army_files_wrapper')">
+                    <select class="" name="has_worked_with_army" id="has_worked_with_army" onchange="toggleWrapper('has_worked_with_army','army_files_wrapper')">
                         <option value="0" {{ $hasArmy=='0' ? 'selected' : '' }}>না</option>
                         <option value="1" {{ $hasArmy=='1' ? 'selected' : '' }}>হ্যাঁ</option>
                     </select>
@@ -438,8 +596,8 @@
                     <div class="dynamic-row army-file-row">
                         <button type="button" class="btn btn-danger remove-btn" onclick="removeRow(this)">✕ মুছুন</button>
                         <div class="form-group">
-                            <label>নথি আপলোড করুন (PDF/JPG/PNG)</label>
-                            <input type="file" name="army_files[]" accept=".pdf,image/*">
+                            <label>নথি আপলোড করুন (JPG/PNG, সর্বোচ্চ 5 MB)</label>
+                            <input type="file" name="army_files[]" accept="image/*">
                         </div>
                     </div>
                 </div>
@@ -458,7 +616,7 @@
                     </select>
                 </div>
                 <div class="form-group" id="freedom_fighter_doc_group" style="display:none;">
-                    <label>সত্যায়িত কপি আপলোড করুন (JPG/PNG)</label>
+                    <label>সত্যায়িত কপি আপলোড করুন (JPG/PNG, সর্বোচ্চ 2 MB)</label>
                     @if($user->freedom_fighter_doc_path)
                         <p class="file-note">বর্তমান: <a href="{{ asset($user->freedom_fighter_doc_path) }}" target="_blank">ফাইল দেখুন</a>। নতুন ফাইল আপলোড করলে প্রতিস্থাপিত হবে।</p>
                     @endif
@@ -478,7 +636,7 @@
                     </select>
                 </div>
                 <div class="form-group" id="disability_doc_group" style="display:none;">
-                    <label>প্রতিবন্ধী সনদ আপলোড করুন (JPG/PNG)</label>
+                    <label>প্রতিবন্ধী সনদ আপলোড করুন (JPG/PNG, সর্বোচ্চ 2 MB)</label>
                     @if($user->disability_doc_path)
                         <p class="file-note">বর্তমান: <a href="{{ asset($user->disability_doc_path) }}" target="_blank">ফাইল দেখুন</a>। নতুন ফাইল আপলোড করলে প্রতিস্থাপিত হবে।</p>
                     @endif
@@ -566,7 +724,7 @@
             <!-- 15. Testimonial -->
             <h2>১৫। চরিত্রগত সার্টিফিকেট (সর্বশেষ শিক্ষা প্রতিষ্ঠান)</h2>
             <div class="form-group">
-                <label>চরিত্রগত সার্টিফিকেট আপলোড করুন (JPG/PNG)</label>
+                <label>চরিত্রগত সার্টিফিকেট আপলোড করুন (JPG/PNG, সর্বোচ্চ 2 MB)</label>
                 @if($user->testimonial_file_path)
                     <p class="file-note">বর্তমান: <a href="{{ asset($user->testimonial_file_path) }}" target="_blank">ফাইল দেখুন</a>। নতুন ফাইল আপলোড করলে প্রতিস্থাপিত হবে।</p>
                 @endif
@@ -582,11 +740,11 @@
                         <div class="row">
                             <div class="form-group">
                                 <label>ব্যক্তি {{ $i+1 }} এর নাম</label>
-                                <input type="text" name="witnesses[{{ $i }}][name]" value="{{ $wit[$i]['name'] ?? '' }}">
+                                <input type="text" name="witnesses[{{ $i }}][name]" value="{{ $wit[$i]['name'] ?? '' }}" required>
                             </div>
                             <div class="form-group">
                                 <label>ব্যক্তি {{ $i+1 }} এর ঠিকানা</label>
-                                <input type="text" name="witnesses[{{ $i }}][address]" value="{{ $wit[$i]['address'] ?? '' }}">
+                                <input type="text" name="witnesses[{{ $i }}][address]" value="{{ $wit[$i]['address'] ?? '' }}" required>
                             </div>
                         </div>
                     </div>
@@ -599,7 +757,7 @@
                 <div class="form-group">
                     <label>প্রার্থী বিবাহিত কিনা?</label>
                     @php $married = old('is_married', $user->is_married ? '1' : '0'); @endphp
-                    <select name="is_married" id="is_married" onchange="toggleSection('is_married','partner_nationality_group')">
+                    <select class="select-control" name="is_married" id="is_married" onchange="toggleSection('is_married','partner_nationality_group')">
                         <option value="0" {{ $married=='0' ? 'selected' : '' }}>অবিবাহিত</option>
                         <option value="1" {{ $married=='1' ? 'selected' : '' }}>বিবাহিত</option>
                     </select>
@@ -611,7 +769,7 @@
             </div>
 
             <!-- 19. Candidate signature -->
-            <h2>১৯। প্রার্থীর স্বাক্ষর (১২০x৮০ পিক্সেল, < ৫০ kb)</h2>
+            <h2>১৯। প্রার্থীর স্বাক্ষর (১২০x৮০ পিক্সেল, সর্বোচ্চ ৫০ kb)</h2>
             <div class="form-group">
                 <label>স্বাক্ষর ও তারিখসহ আপলোড করুন (JPG/PNG)</label>
                 @if($user->signature_file_path)
@@ -779,8 +937,8 @@
             newRow.innerHTML = `
                 <button type="button" class="btn btn-danger remove-btn" onclick="removeRow(this)">✕ ডিলিট</button>
                 <div class="form-group">
-                    <label>নথি আপলোড করুন (PDF/JPG/PNG)</label>
-                    <input type="file" name="army_files[]" accept=".pdf,image/*">
+                    <label>নথি আপলোড করুন (JPG/PNG, সর্বোচ্চ 5 MB)</label>
+                    <input type="file" name="army_files[]" accept=".jpg,.jpeg,.png,.webp">
                 </div>
             `;
             container.appendChild(newRow);

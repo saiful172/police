@@ -11,7 +11,7 @@
             font-family: "Kalpurush", "Noto Sans Bengali", "Hind Siliguri", "SolaimanLipi", Arial, sans-serif;
             background: #f7f9fb;
             color: #000;
-            font-size: 12px;
+            font-size: 18px;
             padding: 30px;
             line-height: 1.5;
             margin: 0;
@@ -34,7 +34,8 @@
         }
 
         p {
-            font-size: 12px;
+            font-size: 18px; changed from 12px to 15px
+            line-height: 1.6;
             margin: 0 0 10px 0;
             word-wrap: break-word;
             word-break: break-word;
@@ -57,7 +58,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 15px;           
+            margin-bottom: 15px;
         }
 
         table,
@@ -69,7 +70,6 @@
         table td {
             padding: 4px 8px;
             vertical-align: top;
-            font-size: 12px;
             word-wrap: break-word;
             word-break: break-word;
             overflow-wrap: break-word;
@@ -81,12 +81,12 @@
 
         .fw-bold {
             font-weight: 600;
-            font-size: 12px;
+            font-size: 18px;
             margin: 10px 0 5px 0;
         }
 
         .small-note {
-            font-size: 12px;
+            font-size: 18px;
             color: black;
             margin-top: 5px;
         }        
@@ -149,7 +149,16 @@
         @media print {
             body {
                 background: #fff;
-                padding: 0;
+                padding: 0;      
+                font-size: 12px !important;          
+            }
+            p{
+                font-size: 12px !important;
+            }
+           
+
+            .fw-bold {
+                font-size: 12px !important;
             }
 
             .container {
@@ -178,7 +187,8 @@
             table,
             table tr,
             table td {
-                border: 1px solid #000 !important;
+                font-size: 12px !important;
+                border: 1px solid #000;
                 margin-right: 20px;
             }
 
@@ -195,33 +205,34 @@
     <div class="container">
         <h1>"প্রাক চাকুরি বৃত্তান্ত যাচাই ফরম"</h1>
         
-        <p class="instructions">সমস্ত দাগগুলির ঠিক উত্তর লিপিবদ্ধ করার জন্য একজন দায়িত্বশীল অফিসার দরখাস্তকারীকে যথাযথভাবে প্রশ্ন করিবেন, কারণ কোন কিছু বাদ গেলে দেরী হওয়ার সম্ভাবনা থাকিতে পারে ও পরিচিতির ক্ষেত্রে বিভ্রান্তির সৃষ্টি যেতে পারে।</p>
+        <p class="instructions">সমস্ত দাগগুলির ঠিক উত্তর লিপিবদ্ধ করার জন্য একজন দায়িত্বশীল অফিসার দরখাস্তকারীকে যথাযথভাবে প্রশ্ন করিবেন, কারণ কোন কিছু বাদ গেলে দেরী হওয়ার সম্ভাবনা থাকিতে পারে ও পরিচিতির ক্ষেত্রে বিভ্রান্তির সৃষ্টি হতে পারে।</p>
 
         <table>
             <tr>
-                <td colspan="2">প্রার্থী যে পদে নিযুক্ত হইবেন (অফিস কর্তৃক পূরণীয়) : {{ $user->designation }}</td>
+                <td colspan="2">প্রার্থী যে পদে নিযুক্ত হইবেন সেই পদের নাম (অফিস কর্তৃক পূরণীয়) : {{ $user->designation }}</td>
             </tr>
             <tr>
-                <td colspan="2" style="font-weight: 700; text-align: center; padding: 6px;">প্রথম ভাগ: (প্রার্থী নিজে পূরণ করিবেন)</td>
+                <td colspan="2" style="font-weight: 900; text-align: center; padding: 6px;">প্রথম ভাগ: (প্রার্থী নিজে পুরণ করিবেন)</td>
             </tr>
             <tr>
-                <td colspan="2">১। প্রার্থীর পূর্ণ নাম (ডাক নামসহ স্পষ্টাক্ষরে) : {{ $user->full_name }}</td>
+                <td colspan="2">১। প্রার্থীর পুরা নাম (ডাক নামসহ স্পষ্টাক্ষরে) : {{ $user->full_name }}</td>
             </tr>
             <tr>
                 <td colspan="2">২। জাতীয়তা : {{ $user->nationality }}</td>
             </tr>
             <tr>
-                <td colspan="2">৩। পিতার পূর্ণ নাম ও (চাকুরীরত থাকিলে) পদের নাম ও জাতীয়তা : {{ $user->fathers_name_design_nation }}</td>
+                <td colspan="2">৩।  পিতার পুরা নাম ও চাকুরীরত থাকিলে পদের নাম ও জাতীয়তা
+                 : {{ $user->fathers_name_design_nation }}</td>
             </tr>
             <tr>
-                <td colspan="2">৪। স্থায়ী ঠিকানা (গ্রাম, ডাকঘর, থানা ও জেলা) : {{ $user->permanent_address_details }}</td>
+                <td colspan="2">৪।  স্থায়ী ঠিকানা (অর্থাৎ গ্রাম, ডাকঘর, থানা ও জেলা) : {{ $user->permanent_address_details }}</td>
             </tr>
             <tr>
                 <td colspan="2">৫। বর্তমান বাসস্থানের ঠিকানা : {{ $user->present_address_details }}</td>
             </tr>
         </table>
 
-        <div class="fw-bold">৬। প্রার্থী যেসব স্থানে বিগত পাঁচ বছরে ছয় মাসের অধিক অবস্থান করেছেন সেই সব স্থানের ঠিকানা</div>
+        <div class="fw-bold">৬। প্রার্থী যেসব স্থানে বিগত পাঁচ বছরে ছয় মাসের অধিক অবস্থান করেছেন সেই সব স্থানের ঠিকানাঃ</div>
         <table>
             <tr>
                 <td class="label" style="width: 50%; text-align: center;">ঠিকানা</td>
@@ -241,22 +252,20 @@
             @endforelse
         </table>
 
-        <p>৭। জন্ম তারিখ (প্রার্থীর মাধ্যমিক স্কুল সার্টিফিকেট/সমমানের পরীক্ষায় উত্তীর্ণ হয়ে থাকিলে উক্ত সার্টিফিকেটে উল্লেখিত সময় লিখিতে হইবে)</p>
-        <table>
-            <tr>
-                <td>{{ $user->birth_date->format('d/m/Y') }}</td>
-            </tr>
-        </table>
-
-        <div class="fw-bold">৮। জন্ম স্থান (ডাকঘর, থানা/উপজেলা, জেলা ইত্যাদি উল্লেখ করিতে হইবে)</div>
-        <table>
-            <tr>
-                <td>{{ $user->birth_place }}</td>
-            </tr>
-        </table>
-
-        <p>৯। প্রার্থী ১৫ (পনের) বৎসর বয়স হইতে যে সব বিদ্যালয়, মহাবিদ্যালয়ে ও বিশ্ববিদ্যালয় অধ্যায়ন করিয়াছেন সেই সব শিক্ষা প্রতিষ্ঠানের নাম ও বৎসর উল্লেখ পূর্বক শিক্ষাগত যোগ্যতাঃ</p>
-        <table>
+         <p style="margin-top: 20px;">৭। জন্ম তারিখ (প্রার্থীর মাধ্যমিক স্কুল সার্টিফিকেট/সমমানের পরীক্ষায় উত্তীর্ণ হয়ে থাকিলে উক্ত সার্টিফিকেটে উল্লেখিত সময় লিখিতে হইবে)।</p>
+        <p>
+            {{ $user->birth_date->format('d/m/Y') }}
+        </p>
+        <div class="divider"></div>   
+        
+         <p style="margin-top: 20px;">৮। জন্ম স্থান (ডাকঘর, থানা/উপজেলা, জেলা ইত্যাদি উল্লেখ করিতে হইবে):</p>
+        <p>
+            {{ $user->birth_place }}
+        </p>
+        <div class="divider"></div>
+        <p>৯। প্রার্থী ১৫ (পনের) বৎসর বয়স হইতে যে সব বিদ্যালয়, মহাবিদ্যালয়ে ও বিশ্ববিদ্যালয় অধ্যায়ন করিয়াছেন সেই সব শিক্ষা প্রতিষ্ঠানের নাম ও  বৎসর উল্লেখ পূর্বক শিক্ষাগত যোগ্যতাঃ
+        </p>
+        <table style="text-align: center;">
             <tr>
                 <td class="label" style="width: 35%;">বিদ্যালয় / মহাবিদ্যালয় / বিশ্ববিদ্যালয়</td>
                 <td class="label" style="width: 25%;">এস,এস,সি/ এইচ,এস,সি/ অর্নার্স/ মাষ্টার্স ডিগ্রির রেজি: নম্বর/ রোল নম্বর</td>
@@ -266,7 +275,7 @@
             @forelse($user->educationDetails as $education)
             <tr>
                 <td>{{ $education->institution_name }}</td>
-                <td>{{ $education->reg_no }} / {{ $education->roll_no }}</td>
+                <td>{{ $education->degree_name }} - {{ $education->reg_no }} / {{ $education->roll_no }}</td>
                 <td>{{ $education->admission_date->format('d/m/Y') }} / {{ $education->admission_session }}</td>
                 <td>{{ $education->completion_year->format('Y') }}</td>
             </tr>
@@ -280,12 +289,12 @@
         <div class="page-break"></div>
 
         <p style="margin-top: 20px;">১০। কোন সরকারী/আধা-সরকারী/স্বায়ত্তশাসিত/আধা-স্বায়ত্তশাসিত/স্থানীয় সরকারের সংস্থাসহ বেসরকারী প্রতিষ্ঠানে প্রার্থী পূর্বে চাকুরী করে থাকলে/বর্তমানে কর্মরত থাকিলে উহার পূর্ণ বিবরণ ও ঠিকানা এবং সেইগুলি পরিত্যাগের কারণঃ</p>
-        <table>
+        <table style="text-align: center;">
             <tr>
                 <td class="label" style="width: 30%;">নিয়োগকারী অফিস / ব্যবসা প্রতিষ্ঠান এর নাম</td>
                 <td class="label" style="width: 15%;">তারিখ হইতে</td>
                 <td class="label" style="width: 15%;">তারিখ পর্যন্ত</td>
-                <td class="label" style="width: 15%;">কর্মরত থাকিলে</td>
+                <td class="label" style="width: 15%;">কর্মরত থাকিলে (কর্মরত লিখিতে হইবে)</td>
                 <td class="label" style="width: 25%;">পরিত্যাগ করিলে (পরিত্যাগের কারণ)</td>
             </tr>
             @forelse($user->previousJobExperiences as $job)
@@ -303,41 +312,49 @@
             @endforelse
         </table>
 
-        <p class="instructions">বাংলাদেশ সেনাবাহিনীর অধীনে কোন প্রার্থী পূর্বে চাকুরী করে থাকলে অব্যাহতির সার্টিফিকেট, লিপিবদ্ধ চাকুরী মেয়াদ, কি কি দায়িত্ব পালন করেছেন এবং চরিত্র ও আচার ব্যবহার সম্পর্কিত সংশ্লিষ্ট বিবরণীর উল্লেখ করতে হবে।</p>
+        <p class="instructions">
+            বাংলাদেশ সেনাবাহিনীর অধীনে কোন প্রার্থী পূর্বে চাকুরী করে থাকলে অব্যাহতির সার্টিফিকেট, লিপিবদ্ধ চাকুরী মেয়াদ, কি কি দায়িত্ব পালন করেছেন এবং চরিত্র ও আচার ব্যবহার সম্পর্কিত সংশ্লিষ্ট বিবরণীর উল্লেখ করতে হবে।
+        </p>
 
         @if($user->has_worked_with_army)
-            <p><strong>সেনাবাহিনীতে চাকুরী:</strong> হ্যাঁ - @if($user->army_file_paths && count($user->army_file_paths) > 0)
+            <p><strong>সেনাবাহিনীতে চাকুরী:</strong> হ্যাঁ 
+                {{-- @if($user->army_file_paths && count($user->army_file_paths) > 0)
                    <a href="{{ asset($user->army_file_paths[0]) }}" target="_blank">সংযুক্ত নথি দেখুন</a>
-               @endif
+               @endif --}}
             </p>
             
         @else
-            <p><strong>সেনাবাহিনীতে চাকুরী:</strong> না</p>
+            <p class="instructions"><strong>সেনাবাহিনীতে চাকুরী:</strong> না</p>
         @endif
 
-        <p>১১। প্রার্থী মুক্তিযোদ্ধার পুত্র/কন্যা/পুত্র কন্যার পুত্র কন্যা কিনা (হ্যাঁ বা না): {{ $user->is_freedom_fighter_related ? 'হ্যাঁ' : 'না' }}</p>
-        @if($user->freedom_fighter_doc_path)
+        <p class="instructions">১১। প্রার্থী মুক্তিযোদ্ধার পুত্র/কন্যা/পুত্র কন্যার পুত্র কন্যা কিনা (হ্যাঁ/না): {{ $user->is_freedom_fighter_related ? 'হ্যাঁ' : 'না' }}</p>
+        {{-- @if($user->freedom_fighter_doc_path)
         <p><a href="{{ asset($user->freedom_fighter_doc_path) }}" target="_blank">সত্যায়িত কপি দেখুন</a></p>
-        @endif
-        <p class="small-note">প্রার্থী মুক্তিযোদ্ধা অথবা শহীদ মুক্তিযোদ্ধার পুত্র/কন্যা/পুত্র কন্যার পুত্র কন্যা হইলে, উপযুক্ত কর্তৃপক্ষ কর্তৃক প্রদত্ত পিতা/মাতা/পিতামহের মুক্তিযোদ্ধার সার্টিফিকেটের সত্যায়িত কপি এবং নিয়োগ বিজ্ঞপ্তির ৭ নং অনুচ্ছেদের নির্দেশনামতে প্রত্যয়নপত্রসমূহ সংযুক্ত করতে হবে।</p>
+        @endif --}}
+
+        <p class="small-note">প্রার্থী মুক্তিযোদ্ধা অথবা শহীদ মুক্তিযোদ্ধার পুত্র কন্যা/পুত্র কন্যার পুত্র কন্যা হইলে সেই মর্মে উপযুক্ত কর্তৃপক্ষ কর্তৃক প্রদত্ত পিতা/মাতা/পিতামহের মুক্তিযোদ্ধার সার্টিফিকেট এর সত্যায়িত কপি এবং নিয়োগ বিজ্ঞাপ্তির ৭ নং অনুচেছদের নির্দেশনামতে প্রত্যয়নপত্রসমূহ সংগে দিতে হইবে।</p>
 
         <p style="margin-top: 15px;">১২। প্রার্থী প্রতিবন্ধী কিনা (হ্যাঁ বা না): {{ $user->has_disability ? 'হ্যাঁ' : 'না' }}</p>
-        @if($user->disability_doc_path)
+        {{-- @if($user->disability_doc_path)
         <p><a href="{{ asset($user->disability_doc_path) }}" target="_blank">সত্যায়িত প্রতিবন্ধী সনদ দেখুন</a></p>
-        @endif
-        <p class="small-note">প্রতিবন্ধী কোটার প্রার্থী হলে সংশ্লিষ্ট কর্তৃপক্ষ কর্তৃক প্রদত্ত প্রতিবন্ধী সনদের সত্যায়িত কপি সংযুক্ত করতে হবে।<br />টীকাঃ যথাযথ পদ্ধতিতে তদন্তের মাধ্যমে সংশ্লিষ্ট নিয়োগকারী কর্তৃপক্ষকে সন্তুষ্ট হইতে হবে যে, উল্লিখিত ভূতপূর্ব সামরিক কর্মচারীদের অব্যাহতি সার্টিফিকেট এবং মুক্তিযোদ্ধা ও প্রতিবন্ধী প্রার্থী কর্তৃক দাখিলকৃত সার্টিফিকেট যথাযথ এবং সন্তোষজনক।</p>
+        @endif --}}
+        <p class="small-note">প্রতিবন্ধী কোটার প্রার্থী হলে সংশ্লিষ্ট কর্তৃপক্ষ কর্তৃক প্রদত্ত প্রতিবন্ধী সনদের সত্যায়িত কপি সংগে দিতে হবে।
+        <br />টীকাঃ- যথাযথ পদ্ধতিতে তদন্তের মাধ্যমে সংশ্লিষ্ট নিয়োগকারী কর্তৃপক্ষকে সন্তুষ্ট হইতে হইবে যে, উল্লিখিত ভূতপূর্ব সামরিক কর্মচারীদের অব্যাহতি সার্টিফিকেট এবং মুক্তিযোদ্ধার ও প্রতিবন্ধী প্রার্থী কর্তৃক দাখিলকৃত সার্টিফিকেট যথাযথ এবং সন্তোষজনক।
+        </p>
 
         <div class="divider"></div>
 
-        <p>১৩। ফৌজদারী, রাজনৈতিক বা অন্য কোন মামলায় গ্রেফতার, অভিযুক্ত বা দন্ডিত এবং নজর বন্দী বা বহিস্কৃত হইয়াছেন কিনা; হইয়া থাকলে তারিখসহ পূর্ণ বিবরণ দিতে হবে: {{ $user->has_police_case ? 'হ্যাঁ' : 'না' }}</p>
+        <p>১৩। ফৌজদারী, রাজনৈতিক বা অন্য কোন মামলায় গ্রেফতার, অভিযুক্ত বা দন্ডিত এবং নজর বন্দী বা বহিষ্কৃত হইয়াছেন কিনা; হইয়া থাকলে তারিখসহ পূর্ণ বিবরণ দিতে হবে : {{ $user->has_police_case ? 'হ্যাঁ' : 'না' }}</p>
         @if($user->police_case_details)
-        <p class="case-details"><strong>বিবরণ:</strong> {{ $user->police_case_details }}</p>
+            <p class="case-details">
+             {{ $user->police_case_details }}
+            </p>
         @endif
 
         <div class="divider"></div>
 
-        <p>১৪। নিকট আত্মীয় স্বজনের কেহ অর্থাৎ ভাই, আপন চাচা, শ্বশুরের দিকের নিকট আতীয় স্বজন বাংলাদেশ সরকারের চাকুরীতে নিযুক্ত থাকিলে পদের নাম ও কর্মস্থল উল্লেখ পূর্বক পূর্ণ বিবরণ</p>
-        <table>
+        <p>১৪। নিকট আত্মীয় স্বজনের কেহ অর্থাৎ ভাই, আপন চাচা, শ্বশুরের দিকের নিকট আতীয় স্বজন বাংলাদেশ সরকারের চাকুরীতে নিযুক্ত থাকিলে পদের নাম ও কর্মস্থল উল্লেখ পূর্বক পূর্ণ বিবরণ : </p>
+        <table style="text-align: center;">
             <tr>
                 <td class="label" style="width: 35%;">আত্মীয়-স্বজনের নাম</td>
                 <td class="label" style="width: 30%;">পদের নাম</td>
@@ -365,18 +382,18 @@
         <div class="page-break"></div>
 
         <p style="margin-top: 20px;">১৫। প্রার্থী যে শিক্ষা প্রতিষ্ঠানে সর্বশেষ অধ্যায়ন করিয়াছেন উহার প্রধানের নিকট হইতে একটি চরিত্রগত সার্টিফিকেট দিতে হইবে :</p>
-        <p>
+        {{-- <p>
             @if($user->testimonial_file_path)
                 <a href="{{ asset($user->testimonial_file_path) }}" target="_blank">সার্টিফিকেট দেখুন</a>
             @else
                 সার্টিফিকেট সংযুক্ত নেই
             @endif
-        </p>
+        </p> --}}
 
         <div class="divider"></div>
 
-        <p>১৬। প্রার্থী যে শিক্ষা প্রতিষ্ঠানে সর্বশেষ অধ্যায়ন করিয়াছেন উহার প্রধানের নিকট হইতে একটি চরিত্রগত সার্টিফিকেট দিতে হইবে: প্রার্থীর চরিত্র ও পূর্ব পরিচয় সম্পর্কে স্বাক্ষ্য দিতে পারেন কিন্তু প্রার্থীর সহিত আত্মীয়তার সূত্রে আবদ্ধ নহেন এমন দুই ব্যক্তির ঠিকানাসহ নাম (সংসদ সদস্য, প্রথম শ্রেণীর গেজেটেড অফিসার, বিশ্ববিদ্যালয়ের অধ্যাপক, রিডার, সিনিয়র লেকচার ও বেসরকারী মহাবিদ্যালয়ের অধ্যক্ষ্য):</p>
-        <table>
+        <p>১৬।  প্রার্থীর চরিত্র ও পূর্ব পরিচয় সম্পর্কে স্বাক্ষ্য দিতে পারেন কিন্তু প্রার্থীর সহিত আত্বীয়তার সূত্রে আবদ্ধ নহেন এমন দুই ব্যক্তির ঠিকানাসহ নাম (সংসদ সদস্য, প্রথম শ্রেণীর গেজেটেড অফিসার, বিশ্ববিদ্যালয়ের অধ্যাপক, রিডার, সিনিয়র লেকচার ও বেসরকারী মহাবিদ্যালয়ের অধ্যক্ষ্য):</p>
+        <table style="text-align: center;">
             <tr>
                 <td class="label" style="width: 40%;">নাম</td>
                 <td class="label" style="width: 60%;">ঠিকানা</td>
@@ -416,26 +433,30 @@
        <div style="display: flex; justify-content: flex-end;">
             <div style="text-align: center; margin-top: 150px; font-weight: 600;">
                 প্রেরণকারী অফিসারের স্বাক্ষর ও পদবী<br />
-                এবং পূর্ণ ঠিকানা অফিসের নাম ও<br />
-                তারিখ
+                এবং পুরা ঠিকানা অফিসের নাম ও<br />
+                তারিখঃ
             </div>
         </div>
 
         <div class="page-break"></div>
 
         <p style="text-align: center; font-weight: 700; text-decoration: underline; margin-top: 50px;">দ্বিতীয় ভাগ:</p>
-        <p style="margin-top: 10px;">(জেলা স্পেশাল ব্রাঞ্চের পুলিশ সুপারিনটেনডেন্ট/বাংলাদেশ স্পেশাল ব্রাঞ্চের ডেপুটি ইনস্পেক্টর জেনারেল অব পুলিশ পূরণ করবেন)</p>
+        <p style="margin-top: 10px;">
+            (জেলা স্পেশাল ব্রাঞ্চের পুলিশ সুপারিনটেনডেন্ট/বাংলাদেশ স্পেশাল ব্রাঞ্চের ডেপুটি ইন্সেপেক্টর জেনারেল অব পুলিশ পূরণ করবেন)।
+        </p>
 
         <div class="divider"></div>
 
         <p>উপযুক্ত</p>
-        <p>নিয়োগের কারণে জন্য অনুমোদনঃ</p>
+        <p>
+            নিম্নোক্ত কারণের জন্য অনুপযুক্তঃ
+        </p>
         <p>স্থান <span style="border-bottom: 1px dashed #000; display: inline-block; width: 300px;"></span></p>
-        <p>তারিখ <span style="border-bottom: 1px dashed #000; display: inline-block; width: 300px;"></span></p>       
+        <p>তারিখঃ <span style="border-bottom: 1px dashed #000; display: inline-block; width: 300px;"></span></p>       
          <div style="display: flex; justify-content: flex-end;">
             <div style="text-align: center; margin-top: 150px; font-weight: 600;">
                  <p style="border-top: 1px dashed #000;padding: 5px;">
-                পুলিশ সুপারিনটেনডেন্ট, জেলা স্পেশাল ব্রাঞ্চ/<br />ডেপুটি ইনস্পেক্টর জেনারেল অব পুলিশ<br />স্পেশাল ব্রাঞ্চ, বাংলাদেশ
+                পুলিশ সুপারিনটেনডেন্ট, জেলা স্পেশাল ব্রাঞ্চ/<br />ডেপুটি ইনস্পেক্টর জেনারেল অব পুলিশ<br />স্পেশাল ব্রাঞ্চ, বাংলাদেশ।
                 </p>
             </div>
         </div>
@@ -443,16 +464,17 @@
         <div class="divider"></div>
 
         <p><strong>টীকা:</strong></p>
-        <p>প্রত্যায়নে সংশ্লিষ্ট প্রার্থীর বিরুদ্ধে কোন কিছু না পাওয়া গেলে জেলা
+        <p> প্রত্যায়নে সংশ্লিষ্ট প্রার্থীর বিরুদ্ধে কোন কিছু না পাওয়া গেলে জেলা
             স্পেশাল ব্রাঞ্চের পুলিশ সুপারিনটেনডেন্ট বাংলাদেশ স্পেশাল ব্রাঞ্চের
             ডেপুটি ইন্সপেক্টর জেনারেল অব পুলিশ জবাবসহ এই ফরমটি প্রেরণকারী কর্তৃপক্ষের 
             নিকট সরাসরি ফেরত পাঠাবেন।
-        </p>
-        <p> কিন্তু যদি সংশ্লিষ্ট প্রার্থীর বিরুদ্ধে রেকর্ড এ কোন তথ্য পাওয়া যায় তাহা
+
+             <p>
+                 কিন্তু যদি সংশ্লিষ্ট প্রার্থীর বিরুদ্ধে রেকর্ড এ কোন তথ্য পাওয়া যায় তাহা
             হইলে জেলা স্পেশাল ব্রাঞ্চের পুলিশ সুপারিনটেনডেন্ট বাংলাদেশ স্পেশাল
             ব্রাঞ্চের ডেপুটি ইনস্পেক্টর জেনারেল অব পুলিশ এর মাধ্যমে জবাবসহ এই
             ফরমটি প্রেরণকারী কর্তৃপক্ষের নিকট ফেরত পাঠাবেন।
-        </p>
+            </p>
 
         <p style="text-align: right; margin-top: 80px;">প্রতিস্বাক্ষরিত <span style="font-size: 17px;">--------------------</span><br />ডেপুটি ইন্সপেক্টর জেনারেল অব পুলিশ,<br />স্পেশাল ব্রাঞ্চ, বাংলাদেশ, ঢাকা।</p>
 
